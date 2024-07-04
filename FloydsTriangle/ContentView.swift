@@ -32,24 +32,22 @@ struct ContentView: View {
             }
         }
         
-        func drawTriangle(rowNo: String) -> Void {
-            if let rowNoInt = Int(rowNo){
-                
-                var numArr : [Int] = []
-                var fromNum = 1
-                var toNum = 1
-                for i in 1...rowNoInt {
-                    for j in fromNum...toNum {
-                        numArr.append(j)
-                    }
-                    fromNum = toNum+1
-                    toNum = fromNum+i
-                    print(numArr)
-                    numArr = []
+    func drawTriangle(rowNo: String) {
+        
+        if let rowNoInt = Int(rowNo) {
+            var currentNumber = 1
+            for i in 1...rowNoInt {
+                var row = ""
+                for _ in 1...i {
+                    row += "\(currentNumber) "
+                    currentNumber += 1
                 }
+                print(row.trimmingCharacters(in: .whitespaces))
             }
-            
+        } else {
+            print("Invalid input")
         }
+    }
 }
 
 #Preview {
